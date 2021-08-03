@@ -1,8 +1,6 @@
-const db = require('../models')
-var express = require('express');
-var app = express();
+let db = require('../models')
 
-module.exports = function(app) {
+module.exports = (app) => {
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({}, (err, workouts) => {
             if(err){
