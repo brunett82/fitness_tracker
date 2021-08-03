@@ -1,7 +1,8 @@
+const router = require('express').Router();
 let db = require('../models')
 
-module.exports = (app) => {
-    app.get("/api/workouts", (req, res) => {
+
+    router.get("/api/workouts", (req, res) => {
         db.Workout.find({}, (err, workouts) => {
             if(err){
                 console.log(err);
@@ -11,7 +12,7 @@ module.exports = (app) => {
         });
     });
 
-    app.post("/api/workouts/:workout", ({ params, body }, res) => {
+    router.post("/api/workouts/:workout", ({ params, body }, res) => {
         db.Workout.findOneAndUpdate({ _id: params.id},
             {$push: {excercises:body }},
             { upsert: true, useFindandModify:false},
@@ -20,9 +21,10 @@ module.exports = (app) => {
         })
     });
   
-    app.post('/api/workouts', (req,res) => {
+    router.post('/api/workouts', (req,res) => {
         db.Workout.create({}).then(newWorkout => {
             res.json(newWorkout);
         });
     });
-};
+
+    module.exports = router
