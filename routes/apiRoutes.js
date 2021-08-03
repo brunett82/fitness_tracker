@@ -27,4 +27,14 @@ let db = require('../models')
         });
     });
 
+    router.get("/api/workouts/range", (req, res) => {
+        db.Workout.find({})
+        .then(workout => {
+            res.json(workout);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+    }); 
+    
     module.exports = router
