@@ -14,7 +14,7 @@ A consumer will reach their fitness goals more quickly when they track their wor
 
 ## ScreenShot
 
-![screenshot](/Users/rb3/Desktop/Bootcamp/fitness_tracker/fit.png)
+![screenshot](./fit.png)
 
 ## Usage
 
